@@ -1,0 +1,305 @@
+/* Reset some default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Root variables for colors and fonts */
+:root {
+    --text-color: #333333; /* Charcoal */
+    --heading-color: #000000; /* Black */
+    --primary-color: #ff6347; /* Tomato */
+    --secondary-color: #1e90ff; /* Dodger Blue */
+    --accent-color: #32cd32; /* Lime Green */
+    --tertiary-color: #ff1493; /* Deep Pink */
+    --background-color: #fafafa; /* Light Gray */
+    --dark-bg: #333333; /* Charcoal */
+    --border-color: #cccccc; /* Light Gray */
+    --hover-bg: #f0f0f0; /* Very Light Gray */
+    --transition-speed: 0.4s;
+    --shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    --font-primary: 'Poppins', sans-serif;
+    --font-secondary: 'Roboto', sans-serif;
+}
+
+/* Basic body styling */
+body {
+    font-family: var(--font-secondary);
+    line-height: 1.6;
+    font-size: 16px; /* Base font size */
+    background: linear-gradient(135deg, rgba(0, 128, 128, 0.6), rgba(75, 0, 130, 0.6)); /* Teal to indigo gradient */
+}
+
+h1 {
+    font-family: var(--font-primary);
+    font-size: 2.5rem; /* Larger headings */
+}
+
+h2 {
+    font-family: var(--font-primary);
+    font-size: 2rem; /* Sub-headings */
+}
+
+h3 {
+    font-family: var(--font-primary);
+    font-size: 1.5rem; /* Section headings */
+}
+
+p, a, input, textarea, button {
+    font-family: var(--font-secondary);
+}
+
+/* Header styling */
+header {
+    position: relative;
+    height: 80vh;
+    background: linear-gradient(135deg, rgba(255, 223, 77, 0.8), rgba(255, 215, 0, 0.6));
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    color: #333333; /* Dark text color for contrast */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 20px;
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.7);
+    animation: fadeIn 1.5s ease-out;
+}
+
+header h1, header p {
+    color: #ffffff; /* White text for better contrast */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Navigation styling */
+nav {
+    width: 100%;
+    padding: 15px 20px;
+    background: rgba(30, 144, 255, 0.5); /* Translucent Dodger Blue background */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Light border with transparency */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: background 0.3s ease;
+}
+
+nav.scrolled {
+    background: rgba(255, 99, 71, 0.8); /* Semi-transparent Tomato */
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    color: var(--text-color);
+    cursor: pointer;
+    background: transparent;
+    border: none;
+}
+
+.logo {
+    font-size: 2.5rem;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.logo:hover {
+    color: #ff6347; /* Tomato */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links li {
+    margin: 0;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    position: relative;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.nav-links a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 3px;
+    background: var(--primary-color);
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Hero content styling */
+.hero-content {
+    color: var(--text-color);
+    padding: 20px;
+    animation: fadeInUp 1.5s ease-out; /* Fade-in and slide-up effect */
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+    color: #ff6347; /* Tomato */
+}
+
+.hero-content p {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    font-weight: 300;
+    color: #1e90ff; /* Dodger Blue */
+}
+
+.cta-button {
+    background: var(--primary-color); /* Tomato */
+    color: #fff;
+    padding: 15px 25px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    box-shadow: var(--shadow);
+}
+
+.cta-button:hover {
+    background: #32cd32; /* Lime Green */
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Section styling */
+section {
+    padding: 80px 20px;
+    background: var(--background-color); /* Light gray for uniformity */
+    animation: fadeIn 1s ease-out;
+}
+
+/* Introduction section styling */
+#introduction {
+    background: linear-gradient(135deg, rgba(255, 20, 147, 0.6), rgba(255, 165, 0, 0.6)); /* Deep pink to orange gradient */
+    color: var(--text-color); /* Consistent text color */
+    border-radius: 12px;
+    padding: 50px;
+    margin: 20px auto; /* Center the section */
+    box-shadow: var(--shadow); /* Consistent shadow */
+    max-width: 1200px; /* Optional: limit the width for better alignment */
+    text-align: center; /* Center-align text for uniformity */
+}
+
+#introduction h2 {
+    color: var(--primary-color); /* Consistent primary color */
+    margin-bottom: 20px; /* Adjust spacing */
+    font-size: 2rem; /* Consistent font size */
+    font-weight: 600;
+}
+
+#introduction p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 30px; /* Add spacing below the paragraph */
+}
+
+#introduction .cta-button {
+    margin-top: 20px; /* Space above the button */
+}
+
+/* Footer styling */
+footer {
+    background: rgba(0, 0, 0, 0.6); /* Darker background with some transparency */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    color: #ffffff; /* White text for high contrast */
+    padding: 30px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.2); /* Light border with transparency */
+    box-shadow: inset 0 -1px 10px rgba(0, 0, 0, 0.3); /* Subtle inner shadow for depth */
+}
+
+.social-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.social-links a {
+    color: #ffffff; /* White text color for social links */
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: #ff6347; /* Tomato color for hover effect */
+}
+
+/* Mobile Menu */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background: rgba(0, 0, 0, 0.7); /* Darker translucent background for mobile */
+        width: 100%;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 5px;
+        padding: 1rem;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 0.75rem 0;
+    }
+}
